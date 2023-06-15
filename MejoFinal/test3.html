@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFA Simulator</title>
+
+    <!---custom css link-->
+    <link rel = "stylesheet" type = "text/css" href = "test3.css">
+    <script type="text/javascript" src="DFA.js"></script>
+
+    <!--boxicons link-->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!--remixicons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--googlefont link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="></script>
+
+</head>
+<body>
+
+    <!--Navigation Bar-->
+    <header>
+        <div class = "logo">AUTOMATA</div>
+
+        <ul class="navlist">
+            <li><a href = "test3.html" >Home</a></li>
+            <li><a href = "manual.html" >User Manual</a></li>
+            <li><a href = "about.html" >About</a></li>
+        </ul>
+
+        <div class = "bx bx-menu" id="menu-icon"></div>
+   </header>
+
+    <!--Home-->
+    <section class = "home">
+        <div class = "home-text">
+            <h1>DFA Simulator</h1>
+            <h4>Regular Expression: </h4> 
+            <div class = "dropdown">
+                <div class = "select">
+                <span class="selected">(bab + bbb) b*a* (a* + b*) (ab)* (aba) (bab + aba)* bb (a+b)* (bab+aba) (a+b)*</span>
+                <div class = "caret"></div>
+             </div>
+    
+            <ul class="menu">
+                <a href = "test3.html"><li><span style="color: black"> (bab + bbb) b*a* (a* + b*) (ab)* (aba) (bab + aba)* bb (a+b)* (bab+aba) (a+b)* </span></li></a>
+                <a href = "test2.html" class = "active"><li><span style="color: black"> (1 + 0)* 0* 1* (111 + 00 + 101) (1 + 0)* (101 + 01 + 000) (1 + 0)* (101 + 000)* </span></li></a>
+            </ul>
+            </div>
+            
+            <h4>Enter String: </h4> 
+            <div class = "inputbox">
+                <input type="text" id="inputString" placeholder="Enter String based on RegEx" oninput="lockInput(event)">              
+            </div>    
+            
+            <button class = "validateString">Validate</button>
+            <button class = "simulateDFA"><i class = "ri-play-fill"></i>  Simulate</button>
+            <button class = "clearbutton">Clear </button>
+            <button class = "showCFG">Show CFG</button> 
+            <button class = "showPDA">Show PDA</button>
+            <img class="popup-image" src="images/expression1pda.png">
+            <br>
+            <br>
+
+        </div>
+    </section>
+    <div class = "alert hide">
+        <span class="msg">String is valid!</span>
+    </div>
+
+    <div class = "alerte hidee">
+        <span class="msg">String is invalid!</span>
+    </div>
+
+    <div id="states" class="container2">
+        <div id="q0" class="circle initial-state">-</div> <!--Start State-->
+        <div id="q1" class="circle state1"></div> <!--Start State-->
+        <div id="q2" class="circle state2"></div> <!--Start State-->
+        <div id="q3" class="circle state3"></div> <!--Start State-->
+        <div id="q4" class="circle state4"></div> <!--Start State-->
+        <div id="q5" class="circle state5"></div> <!--Start State-->
+        <div id="q6" class="circle state6"></div> <!--Start State-->
+        <div id="q7" class="circle state7"></div> <!--Start State-->
+        <div id="q8" class="circle state8"></div> <!--Start State-->
+        <div id="q9" class="circle state9"></div> <!--Start State-->
+        <div id="q10" class="circle state10"></div> <!--Start State-->
+        <div id="q11" class="circle state11"></div> <!--Start State-->
+        <div id="q12" class="circle state12"></div> <!--Start State-->
+        <div id="q13" class="circle state13"></div> <!--Start State-->
+        <div id="q14" class="circle state14"></div> <!--Start State-->
+        <div id="q15" class="circle state15"></div> <!--Start State-->
+        <div id="q16" class="circle state16"></div> <!--Start State-->
+        <div id="q17" class="circle state17"></div> <!--Start State-->
+        <div id="q18" class="circle state18"></div> <!--Start State-->
+        <div id="q19" class="circle state19"></div> <!--Start State-->
+        <div id="q20" class="circle state20"></div> <!--Start State-->
+        
+  
+        <div id="q21" class="circle final-state">+</div> <!--Final State-->
+
+        <div id="q22" class="circle trap-state">T</div> <!--Final State-->
+        <div id="q23" class="circle trap-state2">T</div> <!--Final State-->
+        <div id="q24" class="circle trap-state3">T</div> <!--Final State-->
+
+        <div class="line"></div> <!--Final State-->
+        <div class="arrow-right"></div> <!--Final State-->
+        <div class="line line1"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal1"></div> <!--Final State-->
+        <div class="line line2"></div> <!--Final State-->
+        <div class="arrow-right arrow-right2"></div> <!--Final State-->
+        <div class="line line3"></div> <!--Final State-->
+        <div class="arrow-right arrow-right3"></div> <!--Final State-->
+        <div class="line line4"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal4"></div> <!--Final State-->
+        <div class="line line5"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal5"></div> <!--Final State-->
+        <div class="line line6"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal6"></div> <!--Final State-->
+        <div class="line line7"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal7"></div> <!--Final State-->
+        <div class="line line8"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal8"></div> <!--Final State-->
+        <div class="line line9"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal9"></div> <!--Final State-->
+        <div class="line line10"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal10"></div> <!--Final State-->
+        <div class="line line11"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal11"></div> <!--Final State-->
+        <div class="line line12"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal12"></div> <!--Final State-->
+        <div class="line line13"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal13"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal14"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal15"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal16"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal17"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal18"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal19"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal20"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal21"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal22"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal23"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal24"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal25"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal26"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal27"></div> <!--Final State-->
+        <div class="line line14"></div> <!--Final State-->
+        <div class="line line15"></div> <!--Final State-->
+        <div class="line line16"></div> <!--Final State-->
+        <div class="line line17"></div> <!--Final State-->
+        <div class="line line18"></div> <!--Final State-->
+        <div class="line line19"></div> <!--Final State-->
+        <div class="line line20"></div> <!--Final State-->
+        <div class="line line21"></div> <!--Final State-->
+        <div class="line line22"></div> <!--Final State-->
+        <div class="line line23"></div> <!--Final State-->
+        <div class="line line24"></div> <!--Final State-->
+        <div class="line line25"></div> <!--Final State-->
+        <div class="line line26"></div> <!--Final State-->
+        <div class="line line27"></div> <!--Final State-->
+        <div class="line line28"></div> <!--Final State-->
+        <div class="line line28"></div> <!--Final State-->
+        <div class="line line29"></div> <!--Final State-->
+        <div class="line line30"></div> <!--Final State-->
+        <div class="line line31"></div> <!--Final State-->
+        <div class="line line32"></div> <!--Final State-->
+        <div class="line line33"></div> <!--Final State-->
+        <div class="line line34"></div> <!--Final State-->
+        <div class="line line35"></div> <!--Final State-->
+        <div class="line line36"></div> <!--Final State-->
+        <div class="line line37"></div> <!--Final State-->
+        <div class="line line38"></div> <!--Final State-->
+        <div class="arrow-right arrow-right14"></div> <!--Final State-->
+        <div class="arrow-right arrow-right15"></div> <!--Final State-->
+        <div class="arrow-right arrow-right16"></div> <!--Final State-->
+        <div class="arrow-right arrow-right17"></div> <!--Final State-->
+        <div class="arrow-right arrow-right18"></div> <!--Final State-->
+        <div class="arrow-right arrow-right19"></div> <!--Final State-->
+        <div class="arrow-right arrow-right20"></div> <!--Final State-->
+        <div class="arrow-right arrow-right21"></div> <!--Final State-->
+        <div class="arrow-right arrow-right22"></div> <!--Final State-->
+        <div class="arrow-right arrow-right23"></div> <!--Final State-->
+        <div class="arrow-right arrow-right24"></div> <!--Final State-->
+        <div class="arrow-right arrow-right25"></div> <!--Final State-->
+        <div class="arrow-right arrow-right26"></div> <!--Final State-->
+        <div class="arrow-right arrow-right27"></div> <!--Final State-->
+        <div class="arrow-right arrow-right28"></div> <!--Final State-->
+        <div class="arrow-right arrow-right29"></div> <!--Final State-->
+        <div class="arrow-right arrow-right30"></div> <!--Final State-->
+        <div class="arrow-right arrow-right31"></div> <!--Final State-->
+        <div class="arrow-right arrow-right32"></div> <!--Final State-->
+        <div class="arrow-right arrow-right33"></div> <!--Final State-->
+        <div class="arrow-right arrow-right34"></div> <!--Final State-->
+        <div class="arrow-right arrow-right35"></div> <!--Final State-->
+        <div class="arrow-right arrow-right36"></div> <!--Final State-->
+        <div class="clockwise">&#8634;</div> <!--Final State-->
+        <div class="clockwise1">&#8634;</div> <!--Final State-->
+        <div class="clockwise2">&#8634;</div> <!--Final State-->
+        <div class="clockwise3">&#8634;</div> <!--Final State-->
+        <div class="clockwise4">&#8634;</div> <!--Final State-->
+        <div class="clockwise5">&#8634;</div> <!--Final State-->
+        <div class="clockwise6">&#8634;</div> <!--Final State-->
+        <div class="clockwise7">&#8634;</div> <!--Final State-->
+        <div class="clockwise8">&#8634;</div> <!--Final State-->
+        <div class="letter letter1">b,a</div> <!--Number13-->
+        <div class="letter letter2">b</div> <!--Number13-->
+        <div class="letter letter3">b</div> <!--Number13-->
+        <div class="letter letter4">b</div> <!--Number13-->
+        <div class="letter letter5">a</div> <!--Number13-->
+        <div class="letter letter6">a</div> <!--Number13-->
+        <div class="letter letter7">b</div> <!--Number13-->
+        <div class="letter letter8">a</div> <!--Number13-->
+        <div class="letter letter9">b</div> <!--Number13-->
+        <div class="letter letter10">b</div> <!--Number13-->
+        <div class="letter letter11">a</div> <!--Number13-->
+        <div class="letter letter12">b</div> <!--Number13-->
+        <div class="letter letter13">a</div> <!--Number13-->
+        <div class="letter letter14">a</div> <!--Number13-->
+        <div class="letter letter15">b</div> <!--Number13-->
+        <div class="letter letter16">a</div> <!--Number13-->
+        <div class="letter letter17">b</div> <!--Number13-->
+        <div class="letter letter18">a</div> <!--Number13-->
+        <div class="letter letter19">a</div> <!--Number13-->
+        <div class="letter letter20">b</div> <!--Number13-->
+        <div class="letter letter21">a</div> <!--Number13-->
+        <div class="letter letter22">b</div> <!--Number13-->
+        <div class="letter letter23">b</div> <!--Number13-->
+        <div class="letter letter24">b</div> <!--Number13-->
+        <div class="letter letter25">a</div> <!--Number13-->
+        <div class="letter letter26">a</div> <!--Number13-->
+        <div class="letter letter27">b</div> <!--Number13-->
+        <div class="letter letter28">b</div> <!--Number13-->
+        <div class="letter letter29">a</div> <!--Number13-->
+        <div class="letter letter30">b</div> <!--Number13-->
+        <div class="letter letter31">b</div> <!--Number13-->
+        <div class="letter letter32">a</div> <!--Number13-->
+        <div class="letter letter33">a</div> <!--Number13-->
+        <div class="letter letter34">b,a</div> <!--Number13-->
+        <div class="letter letter35">a</div> <!--Number13-->
+        <div class="letter letter36">a</div> <!--Number13-->
+        <div class="letter letter37">a</div> <!--Number13-->
+        <div class="letter letter38">b</div> <!--Number13-->
+        <div class="letter letter39">a</div> <!--Number13-->
+        <div class="letter letter40">b</div> <!--Number13-->
+        <div class="letter letter41">a,b</div> <!--Number13-->
+        <div class="letter letter42">a,b</div> <!--Number13-->
+        <div class="letter letter43">a,b</div> <!--Number13-->
+        <div class="letter letter44">b</div> <!--Number13-->
+        <div class="letter letter45">b</div> <!--Number13-->
+    </div> 
+    
+    <div class = "CFG1 hide">
+        <span class = "cff"><h1>CFG:</h1></span>
+        <span class = "cff">S -> A B C D E F G H I J I</span><br>
+        <span class = "cff">A -> bab | bbb</span><br>
+        <span class = "cff">B -> bB | Ω</span><br>
+        <span class = "cff">C -> aC | Ω</span><br>
+        <span class = "cff">D -> B | C | Ω</span><br>
+        <span class = "cff">E -> abE | Ω</span><br>
+        <span class = "cff">F -> aba</span><br>
+        <span class = "cff">G -> babG | FG | Ω</span><br>
+        <span class = "cff">H -> bb</span><br>
+        <span class = "cff">I -> DI</span><br>
+        <span class = "cff">J -> bab | F</span><br>
+</div>
+
+    <!--js link-->
+    <script src = "test3.js"></script>
+</body>
+</html>
