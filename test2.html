@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFA Simulator</title>
+
+    <!---custom css link-->
+    <link rel = "stylesheet" type = "text/css" href = "test2.css">
+    <script type="text/javascript" src="DFA.js"></script>
+    
+    <!--boxicons link-->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!--remixicons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--googlefont link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="></script>
+
+</head>
+<body>
+
+    <!--Navigation Bar-->
+    <header>
+        <div class = "logo">AUTOMATA</div>
+
+        <ul class="navlist">
+            <li><a href = "test2.html" >Home</a></li>
+            <li><a href = "manual.html" >User Manual</a></li>
+            <li><a href = "about.html" >About</a></li>
+        </ul>
+
+        <div class = "bx bx-menu" id="menu-icon"></div>
+   </header>
+
+    <!--Home-->
+    <section class = "home">
+        <div class = "home-text">
+            <h1>DFA Simulator</h1>
+            <h4>Regular Expression: </h4> 
+            <div class = "dropdown">
+                <div class = "select">
+                <span class="selected">(1 + 0)* 0* 1* (111 + 00 + 101) (1 + 0)* (101 + 01 + 000) (1 + 0)* (101 + 000)*</span>
+                <div class = "caret"></div>
+             </div>
+    
+            <ul class="menu">
+                <a href = "test3.html"><li><span style="color: black"> (bab + bbb) b*a* (a* + b*) (ab)* (aba) (bab + aba)* bb (a+b)* (bab+aba) (a+b)* </span></li></a>
+                <a href = "test2.html" class = "active"><li><span style="color: black"> (1 + 0)* 0* 1* (111 + 00 + 101) (1 + 0)* (101 + 01 + 000) (1 + 0)* (101 + 000)* </span></li></a>
+            </ul>
+            </div>
+            
+            <h4>Enter String: </h4> 
+            <div class = "inputbox">
+                <input type="text" id="inputString" placeholder="Enter String based on RegEx" oninput="lockInput(event)">              
+            </div>    
+            
+            <button class = "validateString">Validate</button>
+            <button class = "simulateDFA"><i class = "ri-play-fill"></i>  Simulate</button>
+            <button class = "clearbutton">Clear </button>
+            <button class = "showCFG">Show CFG</button> 
+            <button class = "showPDA">Show PDA</button>
+            <img class="popup-image" src="images/expression2pda.png">
+            <br>
+            <br>
+
+        </div>
+    </section>
+    <div class = "alert hide">
+        <span class="msg">String is valid!</span>
+    </div>
+
+    <div class = "alerte hidee">
+        <span class="msg">String is invalid!</span>
+    </div>
+                     
+    <div id="states" class="container2">
+        <div id="q0" class="circle initial-state">-</div> <!--Start State-->
+        <div id="q1" class="circle state1"></div> <!--Start State-->
+        <div id="q2" class="circle state2"></div> <!--Start State-->
+        <div id="q3" class="circle state3"></div> <!--Start State-->
+        <div id="q4" class="circle state4"></div> <!--Start State-->
+        <div id="q5" class="circle state5"></div> <!--Start State-->
+        <div id="q6" class="circle state6"></div> <!--Start State-->
+        <div id="q7" class="circle state7"></div> <!--Start State-->
+        <div id="q8" class="circle final-state">+</div> <!--Final State-->
+
+        <div class="line"></div> <!--Final State-->
+        <div class="arrow-right"></div> <!--Final State-->
+        <div class="line line1"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal1"></div> <!--Final State-->
+        <div class="line line2"></div> <!--Final State-->
+        <div class="arrow-right arrow-right2"></div> <!--Final State-->
+        <div class="line line3"></div> <!--Final State-->
+        <div class="arrow-right arrow-right3"></div> <!--Final State-->
+        <div class="line line4"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal4"></div> <!--Final State-->
+        <div class="line line5"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal5"></div> <!--Final State-->
+        <div class="line line6"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal6"></div> <!--Final State-->
+        <div class="line line7"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal7"></div> <!--Final State-->
+        <div class="line line8"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal8"></div> <!--Final State-->
+        <div class="line line9"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal9"></div> <!--Final State-->
+        <div class="line line10"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal10"></div> <!--Final State-->
+        <div class="line line11"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal11"></div> <!--Final State-->
+        <div class="line line12"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal12"></div> <!--Final State-->
+        <div class="line line13"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal13"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal14"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal15"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal16"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal17"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal18"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal19"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal20"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal21"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal22"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal23"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal24"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal25"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal26"></div> <!--Final State-->
+        <div class="arrow-right arrow-diagonal27"></div> <!--Final State-->
+        <div class="line line14"></div> <!--Final State-->
+        <div class="line line15"></div> <!--Final State-->
+        <div class="line line16"></div> <!--Final State-->
+        <div class="line line17"></div> <!--Final State-->
+        <div class="line line18"></div> <!--Final State-->
+        <div class="line line19"></div> <!--Final State-->
+        <div class="line line20"></div> <!--Final State-->
+        <div class="line line21"></div> <!--Final State-->
+        <div class="line line22"></div> <!--Final State-->
+        <div class="line line23"></div> <!--Final State-->
+        <div class="line line24"></div> <!--Final State-->
+        <div class="line line25"></div> <!--Final State-->
+        <div class="line line26"></div> <!--Final State-->
+        <div class="line line27"></div> <!--Final State-->
+        <div class="line line28"></div> <!--Final State-->
+        <div class="arrow-right arrow-right14"></div> <!--Final State-->
+        <div class="arrow-right arrow-right15"></div> <!--Final State-->
+        <div class="arrow-right arrow-right16"></div> <!--Final State-->
+        <div class="arrow-right arrow-right17"></div> <!--Final State-->
+        <div class="arrow-right arrow-right18"></div> <!--Final State-->
+        <div class="arrow-right arrow-right19"></div> <!--Final State-->
+        <div class="arrow-right arrow-right20"></div> <!--Final State-->
+        <div class="arrow-right arrow-right21"></div> <!--Final State-->
+        <div class="arrow-right arrow-right22"></div> <!--Final State-->
+        <div class="arrow-right arrow-right23"></div> <!--Final State-->
+        <div class="arrow-right arrow-right24"></div> <!--Final State-->
+        <div class="arrow-right arrow-right25"></div> <!--Final State-->
+        <div class="arrow-right arrow-right26"></div> <!--Final State-->
+        <div class="arrow-right arrow-right27"></div> <!--Final State-->
+        <div class="clockwise">&#8634;</div> <!--Final State-->
+        <div class="clockwise1">&#8634;</div> <!--Final State-->
+
+        <div class="letter letter1">1</div> <!--Number13-->
+        <div class="letter letter2">0</div> <!--Number13-->
+        <div class="letter letter3">1</div> <!--Number13-->
+        <div class="letter letter4">1</div> <!--Number13-->
+        <div class="letter letter5">0</div> <!--Number13-->
+        <div class="letter letter6">0</div> <!--Number13-->
+        <div class="letter letter7">1</div> <!--Number13-->
+        <div class="letter letter8">0</div> <!--Number13-->
+        <div class="letter letter9">0,1</div> <!--Number13-->
+        <div class="letter letter10">1</div> <!--Number13-->
+        <div class="letter letter11">0</div> <!--Number13-->
+        <div class="letter letter12">1</div> <!--Number13-->
+        <div class="letter letter13">0,1</div> <!--Number13-->
+        <div class="letter letter14">0,1</div> <!--Number13-->
+        <div class="letter letter15">0</div> <!--Number13-->
+    </div>
+    
+
+    <div class = "CFG1 hide">
+            <span class = "cff"><h1>CFG:</h1></span>
+            <span class = "cff">S -> ABCDAEAF</span><br>
+            <span class = "cff">A -> 1A | 0A | Ω</span><br>
+            <span class = "cff">B -> 0B | Ω</span><br>
+            <span class = "cff">C -> 1C | Ω</span><br>
+            <span class = "cff">D -> 111 | 00 | 101</span><br>
+            <span class = "cff">E -> 101 | 01 | 000</span><br>
+            <span class = "cff">F -> 101F | 000F | Ω</span><br>
+    </div>
+
+    <br>
+
+
+    <!--Show PDA-->
+    <!--
+        <div class = "PDA1">
+        <img id="myImage" src="C:\Users\Fritz\Downloads\Test (2)\2.png" alt="PDA2">
+        </div> 
+    -->
+      
+
+    <!--js link-->
+    <script src = "test2.js"></script>
+ 
+</body>
+</html>
